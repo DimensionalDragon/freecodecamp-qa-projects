@@ -19,8 +19,7 @@ router.get('/api/convert', (req, res) => {
   if(!initNum && !initUnit) return res.json({error: 'invalid number and unit'});
   else if(!initUnit) return res.json({error: 'invalid unit'});
   else if(!initNum) return res.json({error: 'invalid number'});
-  const resultString = getString(initNum, spellOutUnit(initUnit), returnNum, spellOutUnit(returnUnit));
-
+  const resultString = getString(initNum, spellOutUnit(initUnit), returnNum.toFixed(5), spellOutUnit(returnUnit));
   const resultObject = {initNum, initUnit, returnNum: parseFloat(returnNum.toFixed(5)), returnUnit, string: resultString};
   res.json(resultObject);
 });
