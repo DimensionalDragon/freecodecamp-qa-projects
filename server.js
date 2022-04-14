@@ -4,9 +4,9 @@ const express     = require('express');
 const bodyParser  = require('body-parser');
 const expect      = require('chai').expect;
 const cors        = require('cors');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
-// const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 
@@ -18,6 +18,12 @@ app.use(cors({origin: '*'})); //For FCC testing purposes only
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Database Connection
+mongoose.connect(process.env.DB_URI);
+const db = mongoose.connection;
+db.on('error', err => console.error('[Error]', err));
+db.once('open', () => console.log('Connected to database'));
 
 //Index page (static HTML)
 app.route('/')
@@ -38,7 +44,13 @@ app.get('/metric-imperial-converter', (req, res) => {
 });
 const metricImperialConverterRouter = require('./routes/metricImperialConverter.js');
 app.use('/metric-imperial-converter', metricImperialConverterRouter);
-// apiRoutes(app);
+
+// Issue Tracker Routes
+app.get('/issue-tracker', (req, res) => {
+  res.sendFile(process.cwd() + '/views/issue-tracker.html');
+});
+const issueTrackerRouter = require('./routes/issueTracker.js');
+app.use('/issue-tracker', issueTrackerRouter);
     
 //404 Not Found Middleware
 app.use(function(req, res, next) {
