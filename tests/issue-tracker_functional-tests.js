@@ -8,7 +8,8 @@ const Issue = require('../models/issue');
 
 chai.use(chaiHttp);
 
-suite('Issue Tracker Functional Tests', () => {
+suite('Issue Tracker Functional Tests', function() {
+    this.timeout(10000);
     suite('HTTP Requests', () => {
         let testIssueID;
         // Create an issue with every field: POST request to /api/issues/{project}
