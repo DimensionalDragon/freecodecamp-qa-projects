@@ -51,6 +51,13 @@ app.get('/issue-tracker', (req, res) => {
 });
 const issueTrackerRouter = require('./routes/issueTracker.js');
 app.use('/issue-tracker', issueTrackerRouter);
+
+// Personal Library Routes
+app.get('/personal-library', (req, res) => {
+  res.sendFile(process.cwd() + '/views/personal-library.html');
+});
+const personalLibraryRouter = require('./routes/personalLibrary.js');
+app.use('/personal-library', personalLibraryRouter);
     
 //404 Not Found Middleware
 app.use(function(req, res, next) {
