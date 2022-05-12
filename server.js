@@ -58,7 +58,14 @@ app.get('/personal-library', (req, res) => {
 });
 const personalLibraryRouter = require('./routes/personalLibrary.js');
 app.use('/personal-library', personalLibraryRouter);
-    
+
+// Sudoku Solver Routes
+app.get('/sudoku-solver', (req, res) => {
+  res.sendFile(process.cwd() + '/views/sudoku-solver.html');
+});
+const sudokuSolverRouter = require('./routes/sudokuSolver.js');
+app.use('/sudoku-solver', sudokuSolverRouter);
+
 //404 Not Found Middleware
 app.use(function(req, res, next) {
   res.status(404)
