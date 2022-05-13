@@ -66,6 +66,13 @@ app.get('/sudoku-solver', (req, res) => {
 const sudokuSolverRouter = require('./routes/sudokuSolver.js');
 app.use('/sudoku-solver', sudokuSolverRouter);
 
+// American-British Translator Routes
+app.get('/american-british-translator', (req, res) => {
+  res.sendFile(process.cwd() + '/views/american-british-translator.html');
+});
+const translatorRouter = require('./routes/americanBritishTranslator.js');
+app.use('/american-british-translator', translatorRouter);
+
 //404 Not Found Middleware
 app.use(function(req, res, next) {
   res.status(404)
