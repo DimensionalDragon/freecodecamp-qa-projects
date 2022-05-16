@@ -4,9 +4,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>DimensionalDragon freeCodeCamp QA Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="../public/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h1>Welcome!</h1>
+    <section class="title">
+        <h1 class="hidden">DimensionalDragon QA Projects</h1>
+    </section>
+    <section class="links">
+        <p class="hidden">Welcome! Feel free to use these services</p>
+        <br>
+        <ul>
+            <li>
+                <a href="/metric-imperial-converter" class="link">
+                    <div class="hidden">
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        <p class="link-text">Metric Imperial Converter</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/issue-tracker" class="link">
+                    <div class="hidden">
+                        <i class="fa-solid fa-bug"></i>
+                        <p class="link-text">Issue Tracker</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/personal-library" class="link">
+                    <div class="hidden">
+                        <i class="fa-solid fa-book"></i>
+                        <p class="link-text">Personal Library</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/sudoku-solver" class="link">
+                    <div class="hidden">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                        <p class="link-text">Sudoku Solver</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/american-british-translator" class="link">
+                    <div class="hidden">
+                        <i class="fa-solid fa-language"></i>
+                        <p class="link-text">American-British Translator</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
 </body>
+<script>
+    const title = document.querySelector('.title h1');
+    const linkText = document.querySelector('.links p');
+    const links = document.querySelectorAll('.link div');
+    setTimeout(() => title.className = 'show', 100);
+    setTimeout(() => linkText.className = 'show', 250);
+    setTimeout(() => links.forEach(link => link.className = 'show'), 500);
+    links.forEach(link => link.addEventListener('mouseover', () => {
+        link.children[0].classList.add('fa-fade');
+        link.children[1].classList.add('underline');
+    }));
+    links.forEach(link => link.addEventListener('mouseout', () => {
+            link.children[0].classList.remove('fa-fade');
+            link.children[1].classList.remove('underline');
+        }));
+</script>
 </html>

@@ -1,0 +1,115 @@
+body {
+    background: linear-gradient(90deg, #333 30%, #777 90%);
+    user-select: none;
+}
+
+section {
+    height: 25vh;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.links p {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+}
+
+.links ul {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.link div i {
+    font-size: 2em;
+}
+
+.link div p {
+    font-size: 1.5em;
+}
+
+.underline {
+    text-decoration: underline white;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(25%);
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s ease-in-out;
+}
+
+@media (max-width: 1028px) {
+    .title h1 {
+        text-align: center;
+    }
+
+    .links {
+        height: auto;
+    }
+
+    .links ul {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .links {
+        height: auto;
+    }
+
+    .links p {
+        font-size: 1em;
+    }
+
+    .links ul {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
